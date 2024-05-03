@@ -22,7 +22,7 @@ Sample:
 
 .. code-block:: python
 
-   from statistic-tool.sample import *
+   from statistic_tool.sample import *
 
    get_sample_size(population_size = n, 
                 population_deviation = std_dev, 
