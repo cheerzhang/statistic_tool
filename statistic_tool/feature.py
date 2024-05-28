@@ -61,3 +61,14 @@ def iv_table(dataframe, target):
             iv_values[column] = calculate_iv(dataframe, column, target)
     
     return pd.DataFrame.from_dict(iv_values, orient='index', columns=['IV']).sort_values(by='IV', ascending=False)
+
+def check_nan_inf(df):
+    result = {}
+    for col in df.columns:
+        nans = df[col].isna().sum()
+        infs = 0
+        if pd.api.types.is_numeric_dtype(df[col]):
+            infs = np.isinf(df[col]).sum()
+        if nans > 0 or infs > 0:
+            result[col] = {'NaN': nans, 'Inf': infs}
+    return result

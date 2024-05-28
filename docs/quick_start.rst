@@ -27,4 +27,11 @@ Sample:
    get_sample_size(population_size = n, 
                 population_deviation = std_dev, 
                 margin_of_error = 0.01)
+
+Feature:
+.. code-block:: python
+
+   from statistic_tool.feature import *
+
+   check_nan_inf(df = d)
    
